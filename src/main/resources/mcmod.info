@@ -1,0 +1,16 @@
+[
+{
+  "modid": "licensetocraft",
+  "name": "License To Craft",
+  "description": "A mod by TBM which adds an arsenal of dimensions, summons and items that become progressively more powerful and useful.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["BlueMonster122"],
+  "credits": "The TBM team",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
