@@ -1,14 +1,14 @@
 package tbm.licensetocraft.util;
 
-import it.unimi.dsi.fastutil.objects.Object2LongArrayMap;
 import it.unimi.dsi.fastutil.objects.Object2LongMap;
+import it.unimi.dsi.fastutil.objects.Object2LongOpenHashMap;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import tbm.licensetocraft.LicenseToCraft;
 
 public final class Profiler {
-    private static final Object2LongMap<String> sections = new Object2LongArrayMap<>();
+    private static final Object2LongMap<String> sections = new Object2LongOpenHashMap<>();
     private static final Logger LOGGER = LogManager.getLogger(LicenseToCraft.ID + "-profiler");
 
     private Profiler() {
@@ -23,8 +23,8 @@ public final class Profiler {
     }
 
     public static void end(String section) {
-        long start = sections.getOrDefault(section, -1L);
-        if (start == -1) {
+        long start = sections.removeLong(section);
+        if (start == 0) {
             LOGGER.error(String.format("Attempted to end a section, [%s], in profiler which is not yet created", section));
         } else {
             LOGGER.info(String.format("Ending Section [%s], took %d ms", section, (System.currentTimeMillis() - start)));
