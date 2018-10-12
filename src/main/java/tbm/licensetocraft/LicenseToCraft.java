@@ -7,9 +7,11 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import tbm.licensetocraft.register.BlockRegistry;
+import tbm.licensetocraft.register.CommandRegistry;
 import tbm.licensetocraft.register.ItemRegistry;
 import tbm.licensetocraft.util.Profiler;
 
@@ -41,6 +43,13 @@ public class LicenseToCraft {
     @EventHandler
     public void postinit(FMLPostInitializationEvent event) {
         Profiler.start("Post Initializing");
+        Profiler.end("Post Initializing");
+    }
+
+    @EventHandler
+    public void serverstarting(FMLServerStartingEvent event) {
+        Profiler.start("Post Initializing");
+        CommandRegistry.onRegisterCommands(event);
         Profiler.end("Post Initializing");
     }
 
