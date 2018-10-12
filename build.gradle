@@ -20,7 +20,7 @@ minecraft {
     version = "1.12.2-14.23.5.2769"
     runDir = "run"
 
-    mappings = "snapshot_20180920"
+    mappings = "snapshot_20180810"
 }
 
 dependencies {
