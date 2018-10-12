@@ -12,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import tbm.licensetocraft.register.BlockRegistry;
 import tbm.licensetocraft.register.CommandRegistry;
+import tbm.licensetocraft.register.DimensionRegistry;
 import tbm.licensetocraft.register.ItemRegistry;
 import tbm.licensetocraft.util.Profiler;
 
@@ -37,6 +38,7 @@ public class LicenseToCraft {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         Profiler.start("Initializing");
+        DimensionRegistry.onRegisterDimensions();
         Profiler.end("Initializing");
     }
 
